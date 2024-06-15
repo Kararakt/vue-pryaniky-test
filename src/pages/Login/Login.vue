@@ -6,9 +6,12 @@ import { login } from '../../utils/auth';
 import BaseInput from '../../components/UI/BaseInput/BaseInput.vue';
 
 const buttonText = ref<boolean>(false);
+const popupActive = ref<boolean>(false);
 
 const username = ref<string>('');
 const password = ref<string>('');
+
+const handleClosePopup = () => (popupActive.value = false);
 
 const handleLogin = async () => {
   buttonText.value = true;
@@ -21,6 +24,7 @@ const handleLogin = async () => {
       localStorage.setItem('jwt', res.data.token);
     })
     .catch((error) => {
+      popupActive.value = true;
       console.log('Произошла ошибка авторизации', error);
     })
     .finally(() => {
@@ -52,4 +56,6 @@ const handleLogin = async () => {
     <span>Пользователь - username{N}</span>
     <span>Пароль - password</span>
   </section>
+
+  <InfoTooltip v-model="popupActive" :closePopup="handleClosePopup" />
 </template>

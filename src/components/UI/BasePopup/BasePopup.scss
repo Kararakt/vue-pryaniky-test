@@ -1,0 +1,58 @@
+.popup {
+  position: fixed;
+  z-index: 30;
+  display: flex;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: hsla(0, 0%, 0%, 0.75);
+
+  &__content {
+    background-color: hsl(0, 0%, 100%);
+    margin: auto;
+    border-radius: 1.5rem;
+    min-width: 18rem;
+    width: 100%;
+    max-width: 40rem;
+    padding: 1.5rem;
+    position: relative;
+  }
+
+  &__close {
+    background-image: url("/close.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    position: absolute;
+    padding: 0;
+    border: 0;
+    height: 2rem;
+    width: 2.5rem;
+    cursor: pointer;
+    right: -2rem;
+    top: -2.5rem;
+    transition: all 0.35s linear;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  &-enter-active,
+  &-leave-active {
+    transition: opacity 0.5s ease;
+  }
+
+  &-enter-from,
+  &-leave-to {
+    transition: opacity 0.5s ease;
+    opacity: 0;
+  }
+}
