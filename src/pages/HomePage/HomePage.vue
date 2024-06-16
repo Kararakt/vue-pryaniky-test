@@ -316,7 +316,7 @@ onMounted(() => {
           </form>
         </li>
       </ul>
-      <span class="home__empty">Пока нет ни одной задачи</span>
+      <span v-else class="home__empty">Пока нет ни одной задачи</span>
     </template>
   </section>
 
