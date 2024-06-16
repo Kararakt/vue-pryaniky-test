@@ -59,12 +59,11 @@ watch(modelUpdate, () => {
   <Transition name="popup">
     <section v-if="modelUpdate" ref="popup" class="popup">
       <div class="popup__content">
-        <button
-          type="button"
-          aria-label="Закрытие модального окна"
+        <font-awesome-icon
+          icon="fa-solid fa-x"
           class="popup__close"
           @click="closePopup"
-        ></button>
+        />
         <h2 class="popup__title">{{ title }}</h2>
         <slot name="content"></slot>
       </div>

@@ -7,8 +7,10 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    BaseDate: typeof import('./src/components/UI/BaseDate/BaseDate.vue')['default']
     BaseInput: typeof import('./src/components/UI/BaseInput/BaseInput.vue')['default']
     BasePopup: typeof import('./src/components/UI/BasePopup/BasePopup.vue')['default']
+    BasePreloader: typeof import('./src/components/UI/BasePreloader/BasePreloader.vue')['default']
     InfoTooltip: typeof import('./src/components/InfoTooltip/InfoTooltip.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

@@ -20,16 +20,11 @@
   }
 
   &__close {
-    background-image: url("/close.svg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-color: transparent;
     position: absolute;
     padding: 0;
     border: 0;
-    height: 2rem;
-    width: 2.5rem;
+    font-size: 2rem;
+    color: hsl(0, 0%, 100%);
     cursor: pointer;
     right: -2rem;
     top: -2.5rem;

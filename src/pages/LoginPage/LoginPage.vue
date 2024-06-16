@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import './Login.scss';
+import './LoginPage.scss';
 
 import { login } from '../../utils/auth';
+import router from '../../router/router';
 
 import BaseInput from '../../components/UI/BaseInput/BaseInput.vue';
+import InfoTooltip from '../../components/InfoTooltip/InfoTooltip.vue';
 
 const buttonText = ref<boolean>(false);
 const popupActive = ref<boolean>(false);
@@ -15,13 +17,15 @@ const handleClosePopup = () => (popupActive.value = false);
 
 const handleLogin = async () => {
   buttonText.value = true;
-  return login(username.value, password.value)
+
+  login(username.value, password.value)
     .then((res) => {
       if (res.error_code === 2004) {
         throw new Error('Ошибка, проверьте введенные данные');
       }
 
       localStorage.setItem('jwt', res.data.token);
+      router.push('/');
     })
     .catch((error) => {
       popupActive.value = true;
@@ -51,7 +55,9 @@ const handleLogin = async () => {
         placeholder="Введите пароль"
         :minLength="4"
       />
-      <button type="submit">{{ buttonText ? 'Заходим...' : 'Войти' }}</button>
+      <button type="submit" class="login__button">
+        {{ buttonText ? 'Заходим...' : 'Войти' }}
+      </button>
     </form>
     <span>Пользователь - username{N}</span>
     <span>Пароль - password</span>

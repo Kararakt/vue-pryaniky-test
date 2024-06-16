@@ -1,9 +1,5 @@
 import { BASE_URL } from './constants';
-import { checkResponse } from './utils';
-
-const request = (url: string, options: RequestInit) => {
-  return fetch(url, options).then(checkResponse);
-};
+import { request } from './utils';
 
 export const login = (username: string, password: string) => {
   return request(`${BASE_URL}/login`, {

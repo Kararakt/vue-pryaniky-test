@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import './BaseInput.scss';
+
 interface Props {
   modelValue: string;
-  type: 'text' | 'password' | 'email';
+  type: 'text' | 'password' | 'email' | 'date';
   name: string;
-  placeholder: string;
+  placeholder?: string;
   minLength?: number;
   maxLength?: number;
 }
@@ -15,6 +17,7 @@ const emit = defineEmits<{
 const props = withDefaults(defineProps<Props>(), {
   minLength: 0,
   maxLength: Infinity,
+  placeholder: '',
 });
 
 const modelUpdate = computed({
@@ -33,5 +36,6 @@ const modelUpdate = computed({
     :minlength="minLength"
     :maxlength="maxLength"
     required
+    class="input"
   />
 </template>
