@@ -39,13 +39,16 @@
   &__task {
     margin-top: 2rem;
     margin-bottom: 2rem;
+    border: 0.125rem solid hsl(0, 0%, 0%);
+    padding: 1rem;
+    border-radius: 0.25rem;
+  }
+
+  &__wrapper {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 1.5rem;
-    border: 0.125rem solid hsl(0, 0%, 0%);
-    padding: 1rem;
-    border-radius: 0.25rem;
   }
 
   &__task-info {
@@ -71,7 +74,25 @@
     }
   }
 
-  &__error {
+  &__edit-form {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  &__inputs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  &__buttons {
+    margin-top: 2rem;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+  }
+
+  &__empty {
     color: hsl(0, 100%, 50%);
     text-align: center;
     font-size: 2rem;

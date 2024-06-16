@@ -29,3 +29,11 @@ export const deleteTask = (id: string) => {
     headers: headers,
   });
 };
+
+export const updateTask = (task: Task, id: string) => {
+  return request(`${BASE_URL}/userdocs/delete/${id}`, {
+    method: 'POST',
+    body: JSON.stringify(task),
+    headers: headers,
+  });
+};
