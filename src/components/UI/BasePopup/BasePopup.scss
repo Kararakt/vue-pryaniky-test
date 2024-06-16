@@ -8,6 +8,11 @@
   right: 0;
   background-color: hsla(0, 0%, 0%, 0.75);
 
+  @media screen and (max-width: 53.5rem) {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
   &__content {
     background-color: hsl(0, 0%, 100%);
     margin: auto;
@@ -29,6 +34,11 @@
     right: -2rem;
     top: -2.5rem;
     transition: all 0.35s linear;
+
+    @media screen and (max-width: 53.5rem) {
+      right: 0;
+      top: -3rem;
+    }
 
     &:hover {
       opacity: 0.7;
