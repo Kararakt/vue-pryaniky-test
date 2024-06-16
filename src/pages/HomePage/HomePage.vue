@@ -169,6 +169,9 @@ const handleDeleteCard = async (id: string) => {
     .catch((error) => {
       showPopup();
       console.error('Произошла ошибка при удалении карточки:', error);
+    })
+    .finally(() => {
+      deletingTasks.value.length = 0;
     });
 };
 

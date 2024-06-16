@@ -31,7 +31,7 @@ export const deleteTask = (id: string) => {
 };
 
 export const updateTask = (task: Task, id: string) => {
-  return request(`${BASE_URL}/userdocs/delete/${id}`, {
+  return request(`${BASE_URL}/userdocs/set/${id}`, {
     method: 'POST',
     body: JSON.stringify(task),
     headers: headers,
