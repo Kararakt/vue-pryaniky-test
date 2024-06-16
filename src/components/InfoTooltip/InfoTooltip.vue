@@ -25,6 +25,8 @@ const modelUpdate = computed({
     v-model="modelUpdate"
     @close-popup="closePopup"
   >
-    <template #content>Проверьте введенные данные</template>
+    <template #content>
+      Проверьте введенные данные или сервер недоступен
+    </template>
   </BasePopup>
 </template>

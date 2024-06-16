@@ -22,3 +22,10 @@ export const createTask = (task: Task) => {
     headers: headers,
   });
 };
+
+export const deleteTask = (id: string) => {
+  return request(`${BASE_URL}/userdocs/delete/${id}`, {
+    method: 'POST',
+    headers: headers,
+  });
+};

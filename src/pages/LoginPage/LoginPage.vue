@@ -3,36 +3,35 @@ import './LoginPage.scss';
 
 import { login } from '../../utils/auth';
 import router from '../../router/router';
+import { usePopup } from '../../composables/usePopup';
+import { handleResponseError } from '../../utils/errorHandler';
 
 import BaseInput from '../../components/UI/BaseInput/BaseInput.vue';
 import InfoTooltip from '../../components/InfoTooltip/InfoTooltip.vue';
 
-const buttonText = ref<boolean>(false);
-const popupActive = ref<boolean>(false);
+const { isPopupVisible, showPopup, hidePopup } = usePopup();
+
+const disableButton = ref<boolean>(false);
 
 const username = ref<string>('');
 const password = ref<string>('');
 
-const handleClosePopup = () => (popupActive.value = false);
-
 const handleLogin = async () => {
-  buttonText.value = true;
+  disableButton.value = true;
 
   login(username.value, password.value)
     .then((res) => {
-      if (res.error_code === 2004) {
-        throw new Error('Ошибка, проверьте введенные данные');
-      }
+      handleResponseError(res);
 
       localStorage.setItem('jwt', res.data.token);
       router.push('/');
     })
     .catch((error) => {
-      popupActive.value = true;
+      showPopup();
       console.log('Произошла ошибка авторизации', error);
     })
     .finally(() => {
-      buttonText.value = false;
+      disableButton.value = false;
     });
 };
 </script>
@@ -55,13 +54,13 @@ const handleLogin = async () => {
         placeholder="Введите пароль"
         :minLength="4"
       />
-      <button type="submit" class="login__button">
-        {{ buttonText ? 'Заходим...' : 'Войти' }}
+      <button :disabled="disableButton" type="submit" class="login__button">
+        {{ disableButton ? 'Заходим...' : 'Войти' }}
       </button>
     </form>
     <span>Пользователь - username{N}</span>
     <span>Пароль - password</span>
   </section>
 
-  <InfoTooltip v-model="popupActive" :closePopup="handleClosePopup" />
+  <InfoTooltip v-model="isPopupVisible" :closePopup="hidePopup" />
 </template>

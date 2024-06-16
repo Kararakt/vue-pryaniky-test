@@ -29,10 +29,46 @@
       background-color: hsl(0, 0%, 0%);
       color: hsl(0, 0%, 100%);
     }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
   }
 
-  &__tasks {
+  &__task {
     margin-top: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    border: 0.125rem solid hsl(0, 0%, 0%);
+    padding: 1rem;
+    border-radius: 0.25rem;
+  }
+
+  &__task-info {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.125rem;
+  }
+
+  &__icons {
+    display: flex;
+    gap: 2rem;
+    font-size: 2rem;
+    color: hsl(0, 100%, 50%);
+  }
+
+  &__edit,
+  &__delete {
+    cursor: pointer;
+    transition: all 0.35s linear;
+
+    &:hover {
+      opacity: 0.5;
+    }
   }
 
   &__error {
