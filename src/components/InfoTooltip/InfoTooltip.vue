@@ -3,6 +3,8 @@ import BasePopup from '../UI/BasePopup/BasePopup.vue';
 
 interface Props {
   modelValue: boolean;
+  title: string;
+  description: string;
   closePopup: () => boolean;
 }
 
@@ -20,13 +22,9 @@ const modelUpdate = computed({
 </script>
 
 <template>
-  <BasePopup
-    title="Произошла ошибка"
-    v-model="modelUpdate"
-    @close-popup="closePopup"
-  >
+  <BasePopup :title="title" v-model="modelUpdate" @close-popup="closePopup">
     <template #content>
-      Проверьте введенные данные или сервер недоступен
+      {{ description }}
     </template>
   </BasePopup>
 </template>

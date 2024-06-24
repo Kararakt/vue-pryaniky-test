@@ -62,5 +62,10 @@ const handleLogin = async () => {
     <span>Пароль - password</span>
   </section>
 
-  <InfoTooltip v-model="isPopupVisible" :closePopup="hidePopup" />
+  <InfoTooltip
+    v-model="isPopupVisible"
+    :closePopup="hidePopup"
+    title="Ошибка входа"
+    description="Проверьте введенные данные, подсказка под кнопкой!"
+  />
 </template>

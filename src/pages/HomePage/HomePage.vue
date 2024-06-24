@@ -323,5 +323,10 @@ onMounted(() => {
     </template>
   </section>
 
-  <InfoTooltip v-model="isPopupVisible" :closePopup="hidePopup" />
+  <InfoTooltip
+    v-model="isPopupVisible"
+    :closePopup="hidePopup"
+    description="Проверьте введенные данные или сервер недоступен"
+    title="Произошла ошибка"
+  />
 </template>
